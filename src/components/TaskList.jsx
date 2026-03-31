@@ -1,6 +1,6 @@
 import TaskItem from "./TaskItem";
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, onDelete, onToggle }) {
   if (tasks.length === 0) {
     return <p>Aucune tâche disponible</p>;
   }
@@ -8,7 +8,12 @@ function TaskList({ tasks }) {
   return (
     <ul>
       {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} />
+        <TaskItem
+          key={task.id}
+          task={task}
+          onDelete={onDelete}
+          onToggle={onToggle}
+        />
       ))}
     </ul>
   );
