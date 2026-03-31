@@ -14,11 +14,27 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((t) => t.id !== id));
+  };
+
+  const toggleTask = (id) => {
+    setTasks(
+      tasks.map((t) =>
+        t.id === id ? { ...t, completed: !t.completed } : t
+      )
+    );
+  };
+
   return (
     <div>
-      <h1>To-Do App</h1>
+      <h1>To-Do list</h1>
       <TaskInput addTask={addTask} />
-      <TaskList tasks={tasks} />
+      <TaskList
+        tasks={tasks}
+        deleteTask={deleteTask}
+        toggleTask={toggleTask}
+      />
     </div>
   );
 }
