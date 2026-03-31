@@ -4,6 +4,7 @@ import TaskList from "./components/TaskList";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState("all");
 
   const addTask = (title) => {
     const newTask = {
@@ -25,13 +26,23 @@ function App() {
       )
     );
   };
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "completed") return task.completed;
+    if (filter === "pending") return !task.completed;
+    return true;
+  });
 
   return (
     <div>
       <h1>To-Do list</h1>
       <TaskInput addTask={addTask} />
+      <div>
+        <button onClick={() => setFilter("all")}>All</button>
+        <button onClick={() => setFilter("completed")}>Completed</button>
+        <button onClick={() => setFilter("pending")}>Pending</button>
+      </div>
       <TaskList
-        tasks={tasks}
+        tasks={filteredTasks}
         deleteTask={deleteTask}
         toggleTask={toggleTask}
       />
