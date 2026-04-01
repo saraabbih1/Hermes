@@ -44,10 +44,10 @@ function App() {
   });
 
   return (
-    <div>
-      <h1>To-Do list</h1>
+    <div style={{ textAlign: "center", marginTop: "30px" }}>
+      <h1 style={{ color: "purple" }}>To-Do list</h1>
       <TaskInput addTask={addTask} />
-      <div>
+      <div  style={{ margin: "20px" }}>
         <button onClick={() => setFilter("all")}>All</button>
         <button onClick={() => setFilter("completed")}>Completed</button>
         <button onClick={() => setFilter("pending")}>Pending</button>
