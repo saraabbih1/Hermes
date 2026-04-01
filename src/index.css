@@ -53,7 +53,10 @@
 body {
   margin: 0;
 }
-
+input::placeholder {
+  color: #DFB6B2;
+  opacity: 0.7;
+}
 #root {
   width: 1126px;
   max-width: 100%;
