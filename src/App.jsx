@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 
-
 const colors = {
   dark1: "#190019",
   dark2: "#2B124C",
@@ -13,21 +12,16 @@ const colors = {
 };
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+
+  const [tasks, setTasks] = useState(() => {
+    return JSON.parse(localStorage.getItem("tasks") || "[]");
+  });
+
   const [filter, setFilter] = useState("all");
-
- 
-  useEffect(() => {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (savedTasks) setTasks(savedTasks);
-  }, []);
-
-
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
- 
   const addTask = (title) => {
     if (!title.trim()) return;
     const newTask = {
@@ -42,7 +36,6 @@ function App() {
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
-  
   const toggleTask = (id) => {
     setTasks(
       tasks.map((t) =>
@@ -51,14 +44,12 @@ function App() {
     );
   };
 
-
   const filteredTasks = tasks.filter((task) => {
     if (filter === "completed") return task.completed;
     if (filter === "pending") return !task.completed;
     return true;
   });
 
- 
   const total = tasks.length;
   const completed = tasks.filter(t => t.completed).length;
 
@@ -68,17 +59,14 @@ function App() {
         <h1>Productivity Dashboard</h1>
       </header>
 
-    
       <div style={statsContainer}>
         <StatCard title="Total Tasks" value={total} color={colors.dark2} />
         <StatCard title="Completed" value={completed} color={colors.dark3} />
         <StatCard title="Pending" value={total - completed} color={colors.dark4} />
       </div>
 
-   
       <TaskInput addTask={addTask} />
 
-    
       <div style={filtersContainer}>
         <FilterButton onClick={() => setFilter("all")} active={filter === "all"}>All</FilterButton>
         <FilterButton onClick={() => setFilter("completed")} active={filter === "completed"}>Completed</FilterButton>
@@ -95,7 +83,6 @@ function App() {
 }
 
 export default App;
-
 
 const dashboardStyle = {
   minHeight: "100vh",
@@ -125,7 +112,6 @@ const filtersContainer = {
   marginBottom: "20px",
 };
 
-
 const StatCard = ({ title, value, color }) => (
   <div style={{
     flex: "1 1 150px",
@@ -146,7 +132,6 @@ const StatCard = ({ title, value, color }) => (
     <p style={{ fontSize: "24px", margin: 0 }}>{value}</p>
   </div>
 );
-
 
 const FilterButton = ({ onClick, active, children }) => (
   <button
