@@ -1,21 +1,27 @@
-import TaskItem from "./TaskItem";
-
-function TaskList({ tasks, onDelete, onToggle }) {
-  if (tasks.length === 0) {
-    return <p>Aucune tâche disponible</p>;
-  }
-
+function TaskList({ tasks, deleteTask, toggleTask }) {
   return (
-    <ul>
+    <div>
       {tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          onDelete={onDelete}
-          onToggle={onToggle}
-        />
+        <div key={task.id}>
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={() => toggleTask(task.id)}
+          />
+
+          <span
+            style={{
+              textDecoration: task.completed ? "line-through" : "none",
+              margin: "10px",
+            }}
+          >
+            {task.title}
+          </span>
+
+          <button onClick={() => deleteTask(task.id)}>Delete</button>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
 
