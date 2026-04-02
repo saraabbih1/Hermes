@@ -56,7 +56,7 @@ function App() {
   return (
     <div style={dashboardStyle}>
       <header style={headerStyle}>
-        <h1>Productivity Dashboard</h1>
+        <h1>TO DO LIST </h1>
       </header>
 
       <div style={statsContainer}>
