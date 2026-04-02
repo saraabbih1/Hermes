@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 const colors = {
-  dark2: "#2B124C",
-  dark3: "#522B5B",
-  light1: "#DFB6B2",
-  light2: "#FBE4D8"
+  dark2: "#021024",
+  dark3: "#052659",
+  light1: "#7DA0C4",
+  light2: "#C1E8FF"
 };
 
 function TaskInput({ addTask }) {
@@ -54,7 +54,7 @@ const inputStyle = {
   border: "none",
   outline: "none",
   backgroundColor: colors.dark2,
-  color: colors.light2, // ✅ الكتابة واضحة
+  color: colors.light2, 
   fontSize: "14px",
   boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
 };

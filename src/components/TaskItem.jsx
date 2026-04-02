@@ -11,7 +11,7 @@ function TaskItem({ task, onDelete, onToggle }) {
         {task.title}
       </span>
 
-      <button onClick={() => onDelete(task.id)}>supprimer</button>
+      <button onClick={() => onDelete(task.id)}>Delete</button>
     </li>
   );
 }

@@ -3,11 +3,11 @@ import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 
 const colors = {
-  dark1: "#190019",
-  dark2: "#2B124C",
-  dark3: "#522B5B",
-  dark4: "#854F6C",
-  light1: "#DFB6B2",
+  dark1: "#021024",
+  dark2: "#052659",
+  dark3: "#5483B3",
+  dark4: "#7DA0C4",
+  light1: "#C1E8FF",
   light2: "#FBE4D8"
 };
 

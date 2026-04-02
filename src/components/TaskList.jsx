@@ -4,7 +4,7 @@ function TaskList({ tasks, deleteTask, toggleTask }) {
 
 const container = {
   display: "flex",
-  flexDirection: "column", // ✅ باش يجيو تحت بعضهم
+  flexDirection: "column",  
   gap: "10px",
   alignItems: "center",
 };
@@ -17,12 +17,12 @@ const taskCard = {
   alignItems: "center",
   padding: "15px",
   borderRadius: "12px",
-  backgroundColor: "#2B124C", // ✅ غامق
+  backgroundColor: "##021024", 
   boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
 };
 
 const deleteBtn = {
-  backgroundColor: "#854F6C",
+  backgroundColor: "#052659",
   color: "#FBE4D8",
   border: "none",
   padding: "6px 12px",
@@ -44,7 +44,7 @@ const deleteBtn = {
 
             <span
               style={{
-                color: "#FBE4D8", // ✅ text واضح
+                color: "#FBE4D8", 
                 textDecoration: task.completed ? "line-through" : "none",
                 fontWeight: "500",
               }}
